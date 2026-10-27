@@ -1,0 +1,265 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Rohit Rana Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single left-aligned column; hero pairs name with a code-style profile card; projects as ruled rows with a real pipeline strip. */
+:root {
+  --bg: #EDF0F3;
+  --surface: #F8FAFB;
+  --ink: #101820;
+  --muted: #55616D;
+  --line: #CBD3DA;
+  --accent: #0B7A75;
+  --accent-ink: #FFFFFF;
+  --tag: #DCE6E8;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F151B; --surface: #161E26; --ink: #E7EDF2; --muted: #93A1AE;
+    --line: #2A3641; --accent: #3FCFC4; --accent-ink: #06201E; --tag: #1D2A33;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F151B; --surface: #161E26; --ink: #E7EDF2; --muted: #93A1AE;
+  --line: #2A3641; --accent: #3FCFC4; --accent-ink: #06201E; --tag: #1D2A33;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 400 16px/1.6 var(--font-body);
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1040px; margin: 0 auto; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.mono { font-family: var(--font-mono); }
+.label { font: 500 12px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+header.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 24px; }
+.brand { font: 700 18px/1 var(--font-display); text-decoration: none; }
+nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--accent); }
+
+.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 40px; padding-block: 48px 64px; align-items: start; }
+.hero h1 { font: 700 clamp(44px, 8vw, 88px)/.96 var(--font-display); letter-spacing: -.03em; margin: 16px 0 24px; text-wrap: balance; }
+.hero p.lead { font-size: 19px; max-width: 34em; margin: 0 0 28px; color: var(--ink); }
+.status { display: inline-flex; align-items: center; gap: 8px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 6px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--ink); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:hover { transform: translateY(-1px); }
+
+.code { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.code .bar { display: flex; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+.code pre { margin: 0; padding: 18px 16px; font: 400 13px/1.75 var(--font-mono); overflow-x: auto; }
+.k { color: var(--accent); } .s { color: var(--muted); }
+
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+h2 { font: 700 clamp(28px, 4vw, 40px)/1.1 var(--font-display); letter-spacing: -.02em; margin: 12px 0 32px; text-wrap: balance; }
+
+.proj { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px 32px; padding-block: 32px; border-top: 1px solid var(--line); }
+.proj:first-of-type { border-top: 0; padding-top: 0; }
+.proj h3 { font: 700 28px/1.1 var(--font-display); margin: 0 0 8px; letter-spacing: -.01em; }
+.proj p { margin: 0 0 16px; max-width: 44em; }
+.meta { display: flex; flex-direction: column; gap: 8px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.tags span { font: 400 12px/1 var(--font-mono); background: var(--tag); padding: 7px 10px; border-radius: 4px; }
+.links { display: flex; gap: 20px; flex-wrap: wrap; font-weight: 600; font-size: 15px; }
+.links a { color: var(--accent); text-underline-offset: 4px; }
+ul.feat { margin: 0 0 20px; padding-left: 18px; max-width: 44em; }
+ul.feat li { margin-bottom: 4px; }
+.pipe { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 20px; font: 400 12px/1 var(--font-mono); }
+.pipe span.step { border: 1px solid var(--line); background: var(--surface); padding: 8px 10px; border-radius: 4px; }
+.pipe i { color: var(--accent); font-style: normal; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+.skills h3 { margin: 0 0 12px; }
+.skills ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.skills li { padding-bottom: 6px; border-bottom: 1px dashed var(--line); }
+.edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; margin-top: 40px; }
+.edu p { margin: 8px 0 0; }
+
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.row { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 18px 20px; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .val { overflow-wrap: anywhere; font-weight: 500; }
+.row a.val { text-underline-offset: 4px; }
+.copy { font: 500 12px/1 var(--font-mono); background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 4px; padding: 8px 12px; cursor: pointer; }
+.copy:hover { border-color: var(--accent); color: var(--accent); }
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-block: 24px 48px; }
+  .proj { grid-template-columns: minmax(0, 1fr); }
+  .meta { flex-direction: row; }
+  .row { grid-template-columns: minmax(0, 1fr) auto; }
+  .row .label { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top">Rohit Rana</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <span class="label status"><span class="dot"></span> Full stack &amp; backend developer</span>
+        <h1>Rohit Rana</h1>
+        <p class="lead">I build web applications from the database to the browser: React frontends, Node and FastAPI backends, and the cloud setup that keeps them running. I like projects with real users, real constraints and a deployed URL.</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">See projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="code" aria-label="Profile summary">
+        <div class="bar"><span class="label">profile.js</span><span class="label">India · UTC+05:30</span></div>
+<pre><span class="k">const</span> rohit = {
+  education: <span class="s">"Computer Science, VIT Bhopal (2025)"</span>,
+  roles: [<span class="s">"Full Stack Developer"</span>,
+          <span class="s">"Backend Engineer"</span>],
+  focus: [<span class="s">"Scalable systems"</span>,
+          <span class="s">"Cloud architecture"</span>,
+          <span class="s">"AI-driven apps"</span>],
+  certifications: [
+    <span class="s">"AWS Cloud Practitioner"</span>,
+    <span class="s">"AWS Solutions Architect Associate"</span>
+  ]
+};</pre>
+      </div>
+    </div>
+
+    <section id="work">
+      <span class="label">Selected work</span>
+      <h2>Three projects, each one running end to end</h2>
+
+      <article class="proj">
+        <div class="meta"><span class="label">AI / RAG</span><span class="label">Live</span></div>
+        <div>
+          <h3>StudyBuddy AI</h3>
+          <p>Students upload PDF notes and ask questions in plain language. Answers come from the uploaded material through a retrieval-augmented generation pipeline, alongside generated summaries, quizzes and flashcards.</p>
+          <div class="pipe" aria-label="How StudyBuddy AI answers a question">
+            <span class="step">PDF upload</span><i>→</i>
+            <span class="step">Chunk &amp; embed locally</span><i>→</i>
+            <span class="step">Cosine similarity search</span><i>→</i>
+            <span class="step">Grok answer from top chunks</span>
+          </div>
+          <div class="tags"><span>React + Vite</span><span>Node + Express</span><span>MongoDB</span><span>JWT</span><span>Grok API</span><span>transformers.js</span></div>
+          <div class="links">
+            <a href="https://studybuddy-ai-alpha.vercel.app" target="_blank" rel="noopener">Live demo</a>
+            <a href="https://github.com/rohittrana/studybuddy-ai" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="meta"><span class="label">Full stack</span><span class="label">Code execution</span></div>
+        <div>
+          <h3>LeetLab</h3>
+          <p>A LeetCode-style platform where users solve problems, run code in Java, C++, Python and JavaScript through the Judge0 API, and track every submission.</p>
+          <ul class="feat">
+            <li>JWT login and registration with hashed passwords</li>
+            <li>Tag and difficulty filters, playlists, and an admin panel for managing problems</li>
+            <li>Submission history marked Accepted or Wrong Answer, with a Monaco editor in the browser</li>
+          </ul>
+          <div class="tags"><span>React + Vite</span><span>Zustand</span><span>Tailwind + DaisyUI</span><span>Node + Express</span><span>Prisma</span><span>PostgreSQL</span><span>Judge0</span></div>
+          <div class="links">
+            <a href="https://github.com/rohittrana/LeetLab" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="meta"><span class="label">TypeScript</span><span class="label">Frontend + Backend</span></div>
+        <div>
+          <h3>Drawlify</h3>
+          <p>A TypeScript application split into separate Frontend and Backend projects. The repository is public; open it for the code and structure.</p>
+          <div class="tags"><span>TypeScript</span></div>
+          <div class="links">
+            <a href="https://github.com/rohittrana/Drawlify" target="_blank" rel="noopener">Source on GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <p>More repositories, including a blockchain voting system and a React component library, are on <a href="https://github.com/rohittrana" target="_blank" rel="noopener">my GitHub profile</a>.</p>
+    </section>
+
+    <section id="stack">
+      <span class="label">Stack</span>
+      <h2>What I work with</h2>
+      <div class="skills">
+        <div><h3 class="label">Frontend</h3><ul><li>React</li><li>Next.js</li><li>TypeScript</li><li>TailwindCSS</li></ul></div>
+        <div><h3 class="label">Backend</h3><ul><li>Node.js</li><li>Express</li><li>FastAPI</li><li>Java</li></ul></div>
+        <div><h3 class="label">Databases</h3><ul><li>MongoDB</li><li>PostgreSQL</li><li>Redis</li></ul></div>
+        <div><h3 class="label">Cloud &amp; DevOps</h3><ul><li>AWS</li><li>Docker</li><li>Linux</li><li>CI/CD</li></ul></div>
+      </div>
+      <div class="edu">
+        <div><span class="label">Education</span><p>B.Tech, Computer Science at VIT Bhopal (2025)</p></div>
+        <div><span class="label">Certifications</span><p>AWS Cloud Practitioner<br>AWS Solutions Architect, Associate</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <span class="label">Contact</span>
+      <h2>Let's build something</h2>
+      <div class="contact-grid">
+        <div class="row">
+          <span class="label">Email</span>
+          <a class="val" id="email-text" href="mailto:rohitrana2429@gmail.com">rohitrana2429@gmail.com</a>
+          <button class="copy" id="copy-email" type="button">Copy</button>
+        </div>
+        <div class="row">
+          <span class="label">GitHub</span>
+          <a class="val" href="https://github.com/rohittrana" target="_blank" rel="noopener">github.com/rohittrana</a>
+          <span></span>
+        </div>
+        <div class="row">
+          <span class="label">LinkedIn</span>
+          <a class="val" href="https://www.linkedin.com/in/rohittrana17/" target="_blank" rel="noopener">linkedin.com/in/rohittrana17</a>
+          <span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Rohit Rana</span>
+    <a href="#top">Back to top</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-email');
+  var txt = document.getElementById('email-text');
+  function select() {
+    var r = document.createRange(); r.selectNodeContents(txt);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  btn.addEventListener('click', function () {
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1800); };
+    try {
+      navigator.clipboard.writeText('rohitrana2429@gmail.com').then(done, function () { select(); btn.textContent = 'Selected'; });
+    } catch (e) { select(); btn.textContent = 'Selected'; }
+  });
+})();
+</script>
+
+</body></html>
